@@ -1,0 +1,10 @@
+[
+  {
+    "name": "for-direction",
+    "plugin": "eslint",
+    "docs": {
+      "url": "https://oxc.rs/docs/guide/usage/linter/rules/eslint/for-direction.html",
+      "description": "Disallow <code>for</code> loop update causing the counter to move in the wrong direction."
+    }
+  }
+]
