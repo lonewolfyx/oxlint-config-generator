@@ -1,11 +1,8 @@
-import { fileURLToPath, resolve } from 'node:url'
-import fs from 'node:fs/promises'
+import payload from '../payload.json'
 
 export default defineEventHandler(async () => {
-    const configPath = resolve(fileURLToPath(import.meta.url), '../../server/payload.json')
-
     return {
-        rules: JSON.parse(await fs.readFile(configPath, 'utf8')),
+        rules: payload,
         categories: [
             {
                 name: 'correctness',
