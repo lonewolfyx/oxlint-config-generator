@@ -2,9 +2,10 @@
     <div class="relative border rounded opacity-75 px-4 py-3">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-start">
-                <div
+                <NuxtLink
                     class="flex flex-col cursor-pointer text-base font-mono"
-                    @click="handleClick"
+                    target="_blank"
+                    :to="rule.docs.url"
                 >
                     <div class="flex justify-start gap-0.5">
                         <span
@@ -14,7 +15,7 @@
                         <span class="opacity-65">/</span>
                     </div>
                     <span>{{ rule.name }}</span>
-                </div>
+                </NuxtLink>
                 <div>
                     <button
                         class="cursor-pointer"
