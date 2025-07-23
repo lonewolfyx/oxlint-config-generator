@@ -3,9 +3,9 @@
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-start">
                 <NuxtLink
+                    :to="rule.docs.url"
                     class="flex flex-col cursor-pointer text-base font-mono"
                     target="_blank"
-                    :to="rule.docs.url"
                 >
                     <div class="flex justify-start gap-0.5">
                         <span
