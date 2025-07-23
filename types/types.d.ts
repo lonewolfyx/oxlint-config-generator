@@ -49,9 +49,14 @@ export interface IPayloadRules {
     }
 }
 
+export interface ICategory {
+    name: string
+    description: string
+}
+
 export interface IPayload {
     rules: IPayloadRules[]
-    categories: string[]
+    categories: ICategory[]
     plugins: {
         name: string
         isDefault: boolean

@@ -1,12 +1,10 @@
-import { readFile } from 'fs/promises'
-import { join } from 'path'
+import type { IPayload, IPayloadRules } from '~~/types/types'
 
-export default defineEventHandler(async () => {
-    const filePath = join(process.cwd(), '/data/payload.json')
-    const fileContent = await readFile(filePath, 'utf-8')
+export const getOXLintPayload = async (): Promise<IPayload> => {
+    const data = await $fetch('/payload.json')
 
     return {
-        rules: JSON.parse(fileContent),
+        rules: data as IPayloadRules[],
         categories: [
             {
                 name: 'correctness',
@@ -53,4 +51,4 @@ export default defineEventHandler(async () => {
             { name: 'vitest', isDefault: false },
         ],
     }
-})
+}

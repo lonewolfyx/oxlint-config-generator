@@ -32,7 +32,7 @@
                 {{ rule.docs.description }}
             </p>
 
-            <div class="flex items-center mt-auto">
+            <div class="flex items-center mt-auto gap-3">
                 <a-tooltip
                     v-if="rule.default"
                     content="Rules turned on by default"
@@ -43,6 +43,7 @@
                         size="24"
                     />
                 </a-tooltip>
+                <span v-if="rule.fixable">{{ rule.fixable }}</span>
                 <div class="ml-auto flex items-center">
                     <SeverityLevel
                         v-model="level"

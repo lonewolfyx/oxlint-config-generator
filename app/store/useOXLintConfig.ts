@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import type { IOXLinterConfig, IPayloadRules } from '~~/types/types'
 import { payload } from '~/composables/payload'
 import { Notification } from '@arco-design/web-vue'
+import type { VNodeChild } from 'vue'
 
 const filterEmptyKeys = (obj: Record<string, any>) => {
     return Object.entries(obj).reduce((filteredObj, [key, value]) => {
@@ -100,6 +101,8 @@ export const useOXLintConfig = defineStore('oxlint-cofnig', () => {
             rules: {},
             plugins: [],
         }
+
+        // @ts-ignore
         Notification.success({
             title: 'OXLint Config has reset',
             position: 'bottomRight',

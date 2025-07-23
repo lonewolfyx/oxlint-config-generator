@@ -1,7 +1,7 @@
 <template>
     <div>
         <DynamicScroller
-            :items="chunkedRules"
+            :items="chunkedRs"
             :min-item-size="150"
             key-field="rowKey"
         >
@@ -19,7 +19,7 @@
                             :rule="item"
                         />
                     </div>
-                </DynamicScrollerItem>
+                </dynamicscrolleritem>
             </template>
         </DynamicScroller>
     </div>
@@ -37,23 +37,22 @@ const oxRules = computed(() => payload.value.rules)
 
 type RuleRow = IPayloadRules[] & { rowKey?: string }
 
-const chunkedRules = computed<RuleRow[]>(() => {
-    return oxRules.value.reduce((acc: RuleRow[], item: IPayloadRules, index: number) => {
-        const chunkIndex = Math.floor(index / 3)
-
-        if (!acc[chunkIndex]) {
-            const row: RuleRow = []
-            Object.defineProperty(row, 'rowKey', {
-                value: `row-${chunkIndex}`,
-                enumerable: false,
-            })
-            acc[chunkIndex] = row
-        }
-
-        acc[chunkIndex].push(item)
-        return acc
-    }, [] as RuleRow[])
-})
-
 const { rules } = storeToRefs(useOXLintConfig())
+
+const chunkedRs = computed(() => {
+    const rules = oxRules.value
+    const chunkSize = 3
+    const result: RuleRow[] = []
+
+    for (let i = 0; i < rules.length; i += chunkSize) {
+        const row: RuleRow = rules.slice(i, i + chunkSize)
+        Object.defineProperty(row, 'rowKey', {
+            value: `row-${result.length}`,
+            enumerable: false,
+        })
+        result.push(row)
+    }
+
+    return result
+})
 </script>
