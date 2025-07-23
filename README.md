@@ -14,7 +14,7 @@ writing complex configuration files.
 - 🚀 **Quick Generation** - Generate oxlint configurations through a visual interface
 - ⚙️ **Flexible Configuration** - Support for customizing all oxlint rules
 
-- [![OXLint Config Generator](https://github.com/lonewolfyx/oxlint-config-generator/blob/master/public/opengraph-image.png?raw=true)](https://oxlint-config-generator.vercel.app/)
+[![OXLint Config Generator](https://github.com/lonewolfyx/oxlint-config-generator/blob/master/public/opengraph-image.png?raw=true)](https://oxlint-config-generator.vercel.app/)
 
 ### Issue Reporting
 
