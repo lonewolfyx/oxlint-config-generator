@@ -21,7 +21,6 @@
         class="relative w-screen h-screen m-auto px-4 pt-8 pb-2 flex flex-col space-y-4"
     >
         <Header />
-        <HeaderMenu />
 
         <div class="flex-1 grid grid-cols-4 overflow-hidden gap-4">
             <div class="col-span-3 h-full overflow-auto ">
