@@ -113,7 +113,6 @@ const handleDeleteConfig = () => {
 }
 
 const handleChange = (row: string) => {
-    console.log(props.rule, row)
     if (!props.rule.plugin) {
         return
     }
