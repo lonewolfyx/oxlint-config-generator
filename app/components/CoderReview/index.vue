@@ -15,19 +15,18 @@
                         size="16"
                     />
                 </button>
-                <!--                TODO -->
-                <!--                <button -->
-                <!--                    :class="cn( -->
-                <!--                        'flex items-center border rounded-full cursor-pointer p-1', -->
-                <!--                        'hover:bg-primary-500/20 hover:text-primary-500/75 hover:border-primary-500/50', -->
-                <!--                    )" -->
-                <!--                    @click="refreshConfig" -->
-                <!--                > -->
-                <!--                    <Icon -->
-                <!--                        name="lucide:copy" -->
-                <!--                        size="16" -->
-                <!--                    /> -->
-                <!--                </button> -->
+                <button
+                    :class="cn(
+                        'flex items-center border rounded-full cursor-pointer p-1',
+                        'hover:bg-primary-500/20 hover:text-primary-500/75 hover:border-primary-500/50',
+                    )"
+                    @click="handleClipboard"
+                >
+                    <Icon
+                        name="lucide:copy"
+                        size="16"
+                    />
+                </button>
             </div>
         </div>
         <div class="relative flex-1 overflow-auto bg-gray-500/10 p-4">
@@ -46,8 +45,19 @@ import 'vue-json-pretty/lib/styles.css'
 import { useOXLintConfig } from '~/store/useOXLintConfig'
 import { cn } from '~/lib/utils'
 // https://github.com/leezng/vue-json-pretty/blob/HEAD/README.zh_CN.md
+import { Notification } from '@arco-design/web-vue'
 
 const { refreshConfig } = useOXLintConfig()
 
 const { coder } = toRefs(useOXLintConfig())
+
+const handleClipboard = () => {
+    const prettyTSConfig = JSON.stringify(coder.value, null, 2)
+    navigator.clipboard.writeText(prettyTSConfig)
+    Notification.success({
+        title: 'Congratulations',
+        content: 'Replicating Success 🎉 🎉 🎉 🎉',
+        position: 'bottomRight',
+    })
+}
 </script>
