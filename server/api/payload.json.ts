@@ -1,8 +1,12 @@
-import payload from '../payload.json'
+import { readFile } from 'fs/promises'
+import { join } from 'path'
 
 export default defineEventHandler(async () => {
+    const filePath = join(process.cwd(), '/data/payload.json')
+    const fileContent = await readFile(filePath, 'utf-8')
+
     return {
-        rules: payload,
+        rules: JSON.parse(fileContent),
         categories: [
             {
                 name: 'correctness',
