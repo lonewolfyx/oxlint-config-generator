@@ -5,7 +5,7 @@
             'gap-4 min-h-0',
         )"
     >
-        <div class="flex flex-col gap-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
             <div class="flex items-start gap-2">
                 <span class="capitalize text-sm opacity-50">default:</span>
                 <div class="flex items-center gap-2">
