@@ -122,3 +122,7 @@
         @apply flex grow;
     }
 }
+
+::-webkit-scrollbar {
+    @apply w-0 h-0;
+}
