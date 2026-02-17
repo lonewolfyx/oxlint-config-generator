@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.6.0",
-    "@nuxt/icon": "^1.15.0",
+    "@nuxt/icon": "^2.0.0",
     "@types/node": "^24.0.14",
     "axios": "^1.10.0",
     "eslint": "^9.31.0",
