@@ -15,6 +15,21 @@
                 OXLint Config Generator
             </span>
         </div>
+        <div class="flex items-center gap-2 **:data-[slot=separator]:!h-4">
+            <Button
+                as-child
+                variant="ghost"
+            >
+                <NuxtLink>
+                    <Icon
+                        mode="svg"
+                        name="lucide:github"
+                    />
+                </NuxtLink>
+            </Button>
+            <Separator orientation="vertical" />
+            <ModeSwitcher />
+        </div>
     </div>
 </template>
 
