@@ -8,7 +8,7 @@
             >
             <span
                 :class="cn(
-                    'bg-gradient-to-r from-[#ff915c] to-[#2b3c5a] bg-clip-text text-transparent',
+                    'bg-gradient-to-r from-[#FF925C] via-[#8A380F] to-[#2B3D5A] bg-clip-text text-transparent',
                 )"
                 class="text-2xl font-medium font-mono"
             >
