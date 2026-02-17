@@ -1,0 +1,34 @@
+<template>
+    <div
+        :class="cn(
+            'bg-background w-1/3',
+            'border border-input rounded-xl shadow-xs',
+            'flex min-h-0',
+        )"
+    >
+        <div class="grow flex flex-col min-h-0 p-2 pt-4 gap-4">
+            <div
+                :class="cn(
+                    'relative capitalize text-foreground font-mono font-medium',
+                    'pl-2',
+                    'after:absolute after:inset-0 after:left-0 after:w-1 after:h-full after:rounded after:bg-amber-600',
+                )"
+            >
+                code review
+            </div>
+            <div class="border border-input rounded p-2 overflow-y-auto min-h-0 h-full bg-green-600">
+                <span>code review</span>
+                <p>code review</p>
+                <p>code review</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script lang="ts" setup>
+import { cn } from '~/lib/utils'
+
+defineOptions({
+    name: 'CodeContainer',
+})
+</script>

@@ -1,6 +1,11 @@
 <template>
     <SiteBody>
-        <div>container</div>
+        <div class="flex flex-col grow p-3 gap-3 min-h-0">
+            <SiteHeader />
+            <SiteRuleInfo />
+            <SiteContent />
+            <SiteFooter />
+        </div>
     </SiteBody>
 </template>
 
