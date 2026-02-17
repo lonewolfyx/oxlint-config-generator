@@ -14,7 +14,7 @@
                     'after:absolute after:inset-0 after:left-0 after:w-1 after:h-full after:rounded after:bg-amber-600',
                 )"
             >
-                code review
+                .oxlintrc.json
             </div>
             <div class="border border-input rounded p-2 overflow-y-auto min-h-0 h-full bg-green-600">
                 <span>code review</span>
