@@ -105,7 +105,7 @@ const generatorOxLintRules = async () => {
     }
 
     await writeFile(
-        resolve(config.cwd, 'public', 'oxlint-rules.json'),
+        resolve(config.cwd, 'app', 'data', 'oxlint-rules.json'),
         JSON.stringify(data, null, 4),
         'utf-8',
     )
