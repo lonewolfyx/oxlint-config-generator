@@ -10,7 +10,7 @@
             <div class="bg-muted border border-input rounded-2xl shadow-xs px-3 py-1">
                 762 rules enabled out of 1718 rules
             </div>
-            <div class="w-1/5">
+            <div class="w-1/3">
                 <InputGroup class="rounded-full">
                     <InputGroupInput placeholder="Search Rules..." />
                     <InputGroupAddon>
