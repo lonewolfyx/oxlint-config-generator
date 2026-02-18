@@ -1,9 +1,11 @@
 import { cva } from 'class-variance-authority'
+import { createContext } from 'reka-ui'
 
 export { default as RuleContainer } from './Container.vue'
 export { default as RuleItem } from './Item.vue'
 export { default as RuleSeverity } from './Severity.vue'
 export { default as RuleHeader } from './Header.vue'
+export { default as RuleConfigProvider } from './ConfigProvider.vue'
 
 export const ruleScopeVariants = cva(
     'dark:bg-muted text-muted-foreground',
@@ -30,3 +32,5 @@ export const ruleScopeVariants = cva(
         },
     },
 )
+
+export const [useRulesConfig, RulesConfigProvider] = createContext<IRulesConfigProvider>('OxLintRules')
