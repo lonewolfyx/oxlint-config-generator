@@ -38,6 +38,7 @@
         "eslint": "^9.39.2",
         "lint-staged": "^16.2.7",
         "nuxt": "^4.2.2",
+        "oxlint": "^1.48.0",
         "picocolors": "^1.1.1",
         "shadcn-nuxt": "^2.4.3",
         "simple-git-hooks": "^2.13.1",
