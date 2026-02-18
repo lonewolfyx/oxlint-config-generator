@@ -63,7 +63,19 @@
                                     size="16"
                                 />
                             </div>
-                            <RuleSeverity />
+                            <div class="flex items-center gap-1">
+                                <RuleSeverity />
+                                <Button
+                                    size="icon-sm"
+                                    variant="secondary"
+                                    class="rounded"
+                                >
+                                    <Icon
+                                        mode="svg"
+                                        name="ph:sliders-duotone"
+                                    />
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
