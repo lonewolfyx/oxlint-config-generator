@@ -10,8 +10,17 @@
                 <Button
                     v-for="plugin in scope.plugins"
                     :key="plugin.value"
+                    :class="cn(
+                        'capitalize',
+                        'border rounded-full',
+                        'px-2.5 py-0.5 h-auto',
+                        ruleScopeVariants(
+                            {
+                                label: '',
+                            },
+                        ),
+                    )"
                     as="label"
-                    class="capitalize border rounded-full px-2.5 py-0.5 h-auto"
                     variant="secondary"
                 >
                     {{ plugin.label }}
@@ -23,6 +32,8 @@
 
 <script lang="ts" setup>
 import type { IScopeCategory } from '#shared/types'
+import { cn } from '~/lib/utils'
+import { ruleScopeVariants } from '~/components/rule'
 
 defineOptions({
     name: 'ScopeSelect',
@@ -41,8 +52,8 @@ const scopeCategories: IScopeCategory[] = [
         label: 'Frameworks',
         plugins: [
             { label: 'React', value: 'react' },
-            { label: 'React Pref', value: 'react-pref' },
-            { label: 'JSX Accessibility', value: 'jsx-a11y' },
+            { label: 'React Pref', value: 'react_perf' },
+            { label: 'JSX Accessibility', value: 'jsx_a11y' },
             { label: 'vue', value: 'vue' },
             { label: 'Next.js', value: 'nextjs' },
         ],
