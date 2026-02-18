@@ -13,7 +13,7 @@
                 >
                     <Icon
                         mode="svg"
-                        name="lucide:delete"
+                        name="ic:twotone-delete"
                     />
                 </Button>
             </div>
