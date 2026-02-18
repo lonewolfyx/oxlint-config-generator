@@ -6,7 +6,7 @@
             'flex min-h-0',
         )"
     >
-        <div class="grow flex flex-col min-h-0 p-2 pt-4 gap-4">
+        <div class="grow flex flex-col min-h-0 pt-4 gap-4">
             <div
                 :class="cn(
                     'relative capitalize text-foreground font-mono font-medium',
@@ -16,7 +16,7 @@
             >
                 .oxlintrc.json
             </div>
-            <div class="border border-input rounded p-2 overflow-y-auto min-h-0 h-full bg-green-600">
+            <div class="rounded-b-xl p-2 overflow-y-auto min-h-0 h-full bg-muted">
                 <span>code review</span>
                 <p>code review</p>
                 <p>code review</p>
