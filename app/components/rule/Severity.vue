@@ -1,27 +1,31 @@
 <template>
-    <RadioGroup
-        :class="cn(
-            'bg-muted inline-flex items-center rounded',
-            'divide-x divide-border-input',
-            'p-1 gap-0',
-        )"
-        default-value="comfortable"
+    <ToggleGroup
+        size="sm"
+        type="single"
+        variant="outline"
     >
-        <RadioButtonGroupItem value="off">
-            off
-        </RadioButtonGroupItem>
-        <RadioButtonGroupItem value="warn">
-            warn
-        </RadioButtonGroupItem>
-        <RadioButtonGroupItem value="error">
-            error
-        </RadioButtonGroupItem>
-    </RadioGroup>
+        <ToggleGroupItem
+            aria-label="rule off"
+            value="off"
+        >
+            <Label class="cursor-pointer">off</Label>
+        </ToggleGroupItem>
+        <ToggleGroupItem
+            aria-label="rule warn"
+            value="warn"
+        >
+            <Label class="cursor-pointer">warn</Label>
+        </ToggleGroupItem>
+        <ToggleGroupItem
+            aria-label="rule error"
+            value="error"
+        >
+            <Label class="cursor-pointer">error</Label>
+        </ToggleGroupItem>
+    </ToggleGroup>
 </template>
 
 <script lang="ts" setup>
-import { cn } from '~/lib/utils'
-
 defineOptions({
     name: 'RuleSeverity',
 })
