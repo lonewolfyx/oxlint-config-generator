@@ -9,6 +9,7 @@
                 <Button
                     size="icon-sm"
                     variant="ghost"
+                    class="text-muted-foreground/50 hover:text-red-500"
                 >
                     <Icon
                         mode="svg"
@@ -45,9 +46,9 @@
             <div class="flex items-center gap-1">
                 <RuleSeverity />
                 <Button
+                    class="rounded"
                     size="icon-sm"
                     variant="secondary"
-                    class="rounded"
                 >
                     <Icon
                         mode="svg"
