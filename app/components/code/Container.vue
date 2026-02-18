@@ -2,7 +2,7 @@
     <div
         :class="cn(
             'bg-background w-1/3',
-            'border border-input rounded-xl shadow-xs',
+            'border border-input rounded-xl',
             'flex min-h-0',
         )"
     >

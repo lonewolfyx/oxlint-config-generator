@@ -7,7 +7,7 @@
     >
         <ScopeSelect />
         <div class="flex justify-between items-center">
-            <div class="bg-muted border border-input rounded-2xl shadow-xs px-3 py-1">
+            <div class="bg-muted border border-input rounded-2xl px-3 py-1">
                 762 rules enabled out of 1718 rules
             </div>
             <div class="w-1/3">
@@ -25,7 +25,7 @@
         <div
             :class="cn(
                 'flex',
-                'px-4 py-2 bg-background border border-input rounded-xl shadow-xs min-h-0 h-full',
+                'px-4 py-2 bg-background border border-input rounded-xl min-h-0 h-full',
             )"
         >
             <div class="grow overflow-y-auto min-h-0">
