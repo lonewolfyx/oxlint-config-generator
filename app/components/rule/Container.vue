@@ -7,7 +7,7 @@
     >
         <ScopeSelect />
         <div class="flex justify-between items-center">
-            <div class="bg-muted border border-input rounded-2xl px-3 py-1">
+            <div class="bg-gray-200 dark:bg-gray-800/20 border border-input rounded-2xl px-3 py-1">
                 762 rules enabled out of 1718 rules
             </div>
             <div class="w-1/3">
