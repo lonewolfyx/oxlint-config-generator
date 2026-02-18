@@ -31,7 +31,6 @@
 </template>
 
 <script lang="ts" setup>
-import type { IScopeCategory } from '#shared/types'
 import { cn } from '~/lib/utils'
 import { ruleScopeVariants } from '~/components/rule'
 
