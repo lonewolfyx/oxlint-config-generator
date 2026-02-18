@@ -20,7 +20,7 @@
             <div class="grow overflow-y-auto min-h-0">
                 <div>rule selected container</div>
                 <div class="grid grid-cols-3 gap-4">
-                    <div class="border border-input rounded p-2 space-y-2">
+                    <div class="relative border border-input rounded p-2 space-y-2">
                         <div class="flex flex-col">
                             <div class="flex justify-start items-center">
                                 <div class="flex items-center flex-1 gap-1.5">
