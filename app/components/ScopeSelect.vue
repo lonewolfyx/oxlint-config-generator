@@ -16,12 +16,13 @@
                         'px-2.5 py-0.5 h-auto',
                         ruleScopeVariants(
                             {
-                                label: '',
+                                label: isSelected?.(plugin.value) ? plugin.value : '',
                             },
                         ),
                     )"
                     as="label"
                     variant="secondary"
+                    @click="toggleScope?.(plugin.value)"
                 >
                     {{ plugin.label }}
                 </Button>
@@ -32,11 +33,13 @@
 
 <script lang="ts" setup>
 import { cn } from '~/lib/utils'
-import { ruleScopeVariants } from '~/components/rule'
+import { ruleScopeVariants, useRulesConfig } from '~/components/rule'
 
 defineOptions({
     name: 'ScopeSelect',
 })
+
+const { toggleScope, isSelected } = useRulesConfig()
 
 const scopeCategories: IScopeCategory[] = [
     {

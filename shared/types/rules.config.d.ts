@@ -1,5 +1,6 @@
 import type { Ref, ShallowRef } from 'vue'
 import type { OxlintConfig } from 'oxlint'
+import type { SourcePluginName } from './index'
 
 export type LintConfigType = 'json' | 'ts'
 
@@ -18,4 +19,9 @@ export interface IRulesConfigProvider {
     // https://oxc.rs/docs/guide/usage/linter/config.html
     oxlintrc?: ShallowRef<OxlintConfig>
     setOxLintRc?: (code: OxlintConfig) => void
+
+    // Scope selection management
+    selectedScopes?: Ref<SourcePluginName[]>
+    toggleScope?: (scope: SourcePluginName) => void
+    isSelected?: (scope: SourcePluginName) => boolean
 }
