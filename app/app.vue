@@ -17,4 +17,10 @@ useHead({
         class: ['h-full'],
     },
 })
+
+const { title, description } = useAppConfig()
+useSeoMeta({
+    title,
+    description,
+})
 </script>
