@@ -21,7 +21,7 @@ export interface IRulesConfigProvider {
     setOxLintRc?: (code: OxlintConfig) => void
 
     // Scope selection management
-    selectedScopes?: Ref<SourcePluginName[]>
-    toggleScope?: (scope: SourcePluginName) => void
-    isSelected?: (scope: SourcePluginName) => boolean
+    selectedScopes: Ref<SourcePluginName[]>
+    toggleScope: (scope: SourcePluginName) => void
+    isSelected: (scope: SourcePluginName) => boolean
 }
