@@ -17,12 +17,17 @@
             )"
         >
             <div class="grow overflow-y-auto min-h-0">
-                <div class="flex flex-col gap-3">
-                    <RuleHeader />
+                <div
+                    v-for="(items, scope) in filteredRules"
+                    :key="`Rule:Scope:${scope}`"
+                    class="flex flex-col gap-3"
+                >
+                    <RuleHeader :scope="scope as SourcePluginName" />
                     <div class="grid grid-cols-3 gap-4">
                         <RuleItem
-                            v-for="index in Array.from({ length: 6 }, (_, i) => i+1)"
-                            :key="index"
+                            v-for="rule in items"
+                            :key="`${rule.value}:${rule.scope}`"
+                            :rule="rule"
                         />
                     </div>
                 </div>
@@ -32,11 +37,46 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import { cn } from '~/lib/utils'
+import { useRulesConfig } from '~/components/rule'
 import RuleHeader from '~/components/rule/Header.vue'
 import RuleKeywordSearch from '~/components/rule/KeywordSearch.vue'
+import type { SourcePluginName } from '#shared/types'
 
 defineOptions({
     name: 'RuleContainer',
+})
+
+const { rules, selectedScopes } = useRulesConfig()
+
+const SORTED_SCOPES = [
+    'eslint',
+    'oxc',
+    'typescript',
+    'react',
+    'react_perf',
+    'jsx_a11y',
+    'nextjs',
+    'vue',
+    'jest',
+    'vitest',
+    'unicorn',
+    'import',
+    'jsdoc',
+    'promise',
+    'node',
+] as SourcePluginName[]
+
+const filteredRules = computed(() => {
+    const result = new Map<string, IRule[]>()
+
+    SORTED_SCOPES.forEach((scope) => {
+        if (selectedScopes.value.includes(scope) && rules[scope]) {
+            result.set(scope, rules[scope])
+        }
+    })
+
+    return Object.fromEntries(result)
 })
 </script>

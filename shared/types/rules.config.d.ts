@@ -1,11 +1,11 @@
 import type { Ref, ShallowRef } from 'vue'
 import type { OxlintConfig } from 'oxlint'
-import type { SourcePluginName } from './index'
+import type { SourcePluginName, IRulesMap } from './index'
 
 export type LintConfigType = 'json' | 'ts'
 
 export interface IRulesConfigProvider {
-    rules: object
+    rules: IRulesMap
     totalRule: number
     defaultRule: number
     fixableRule: number

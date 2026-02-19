@@ -6,6 +6,7 @@
 import { ref } from 'vue'
 import { RulesConfigProvider } from '.'
 import rules from '~/data/oxlint-rules.json'
+import type { IRulesMap } from '#shared/types'
 
 defineOptions({
     name: 'RuleConfigProvider',
@@ -29,7 +30,7 @@ const isSelected = (scope: SourcePluginName) => {
 }
 
 RulesConfigProvider({
-    rules: rules.rules,
+    rules: rules.rules as IRulesMap,
     totalRule: rules.total,
     defaultRule: rules.useDefaultTotal,
     fixableRule: rules.useFixableTotal,
