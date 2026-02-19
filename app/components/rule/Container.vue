@@ -23,17 +23,7 @@
                 <span>rules filtered</span>
                 <span class="opacity-50">out of 1718 rules</span>
             </div>
-            <div class="w-1/3">
-                <InputGroup class="rounded-full">
-                    <InputGroupInput placeholder="Search Rules..." />
-                    <InputGroupAddon>
-                        <Icon
-                            mode="svg"
-                            name="ph:magnifying-glass-duotone"
-                        />
-                    </InputGroupAddon>
-                </InputGroup>
-            </div>
+            <RuleKeywordSearch />
         </div>
         <div
             :class="cn(
@@ -59,6 +49,7 @@
 <script lang="ts" setup>
 import { cn } from '~/lib/utils'
 import RuleHeader from '~/components/rule/Header.vue'
+import RuleKeywordSearch from '~/components/rule/KeywordSearch.vue'
 
 defineOptions({
     name: 'RuleContainer',
