@@ -6,6 +6,7 @@ import { RuleDocParser } from './oxlint.rule.doc.parser'
 import { marked } from 'marked'
 import { load } from 'cheerio'
 import { readFile, writeFile } from 'node:fs/promises'
+import { FIXABLE_TYPES } from '../app/constant'
 
 interface OxlintRules {
     scope: string
@@ -100,7 +101,7 @@ const generatorOxLintRules = async () => {
     const data = {
         total: oxLintRules.length,
         useDefaultTotal: oxLintRules.filter(item => item.default).length,
-        useFixableTotal: oxLintRules.filter(item => !['none', 'pending'].includes(item.fix)).length,
+        useFixableTotal: oxLintRules.filter(item => !FIXABLE_TYPES.includes(item.fix)).length,
         rules: oxLintRulesGroupBySource,
     }
 
