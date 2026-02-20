@@ -1,0 +1,17 @@
+export const scopeToPluginMap: Record<SourcePluginName, PluginName> = {
+    oxc: 'oxc',
+    react: 'react',
+    react_perf: 'react-perf',
+    jsx_a11y: 'jsx-a11y',
+    vue: 'vue',
+    typescript: 'typescript',
+    import: 'import',
+    jsdoc: 'jsdoc',
+    jest: 'jest',
+    vitest: 'vitest',
+    unicorn: 'unicorn',
+    nextjs: 'nextjs',
+    promise: 'promise',
+    node: 'node',
+    eslint: 'eslint',
+}

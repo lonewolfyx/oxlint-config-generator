@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useRulesConfig } from '.'
-import type { IRule, PluginName } from '#shared/types'
+import type { IRule } from '#shared/types'
 
 defineOptions({
     name: 'RuleSeverity',
@@ -41,9 +41,9 @@ const props = defineProps<{
 
 const { oxlintrc, setOxLintRc } = useRulesConfig()!
 
-const ruleKey = computed(() => {
-    return `${props.rule.scope.replace('_', '-')}/${props.rule.value}`
-})
+const scope = computed(() => scopeToPluginMap[props.rule.scope])
+
+const ruleKey = computed(() => `${scope.value}/${props.rule.value}`)
 
 const severity = computed({
     get: () => {
@@ -70,9 +70,8 @@ const severity = computed({
         }
 
         // if the plugin is not in the plugins list, add it
-        const scope = props.rule.scope.replace('_', '-') as PluginName
-        if (newConfig.plugins && !newConfig.plugins.includes(scope)) {
-            newConfig.plugins = [...newConfig.plugins, scope]
+        if (newConfig.plugins && !newConfig.plugins.includes(scope.value)) {
+            newConfig.plugins = [...newConfig.plugins, scope.value]
         }
 
         setOxLintRc(newConfig)

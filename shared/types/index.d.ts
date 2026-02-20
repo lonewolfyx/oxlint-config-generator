@@ -50,7 +50,7 @@ export type RuleFixType = 'fixable_fix'
     | 'none'
 
 export interface IRule {
-    scope: PluginName
+    scope: SourcePluginName
     value: string
     category: RuleCategory
     type_aware: boolean
