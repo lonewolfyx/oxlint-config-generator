@@ -19,6 +19,7 @@
                     class="text-muted-foreground/50 hover:text-red-500"
                     size="icon-sm"
                     variant="ghost"
+                    @click="handleDeleteRule"
                 >
                     <Icon
                         mode="svg"
@@ -74,16 +75,52 @@
 </template>
 
 <script lang="ts" setup>
-import { ruleScopeVariants } from '~/components/rule'
+import { computed } from 'vue'
+import { ruleScopeVariants, useRulesConfig } from '~/components/rule'
 import { cn } from '~/lib/utils'
 import type { IRule } from '#shared/types'
 import { FIXABLE_TYPES } from '~/constant'
+import { scopeToPluginMap } from '~/utils/scopeToPluginMap'
 
 defineOptions({
     name: 'RuleItem',
 })
 
-defineProps<{
+const props = defineProps<{
     rule: IRule
 }>()
+
+const { oxlintrc, setOxLintRc } = useRulesConfig()!
+
+const scope = computed(() => scopeToPluginMap[props.rule.scope])
+
+const ruleKey = computed(() => `${scope.value}/${props.rule.value}`)
+
+// delete rule
+const handleDeleteRule = () => {
+    if (!oxlintrc || !setOxLintRc || !oxlintrc.value.rules) return
+
+    const currentRules = { ...oxlintrc.value.rules }
+
+    // delete current rule
+    delete currentRules[ruleKey.value]
+
+    // check if there are other rules using the scope
+    const scopePrefix = `${scope.value}/`
+    const hasOtherRules = Object.keys(currentRules).some(key =>
+        key.startsWith(scopePrefix),
+    )
+
+    // if no other rules use the scope, remove it from plugins
+    let newPlugins = oxlintrc.value.plugins ? [...oxlintrc.value.plugins] : []
+    if (!hasOtherRules && newPlugins.includes(scope.value)) {
+        newPlugins = newPlugins.filter(p => p !== scope.value)
+    }
+
+    setOxLintRc({
+        ...oxlintrc.value,
+        plugins: newPlugins,
+        rules: currentRules,
+    })
+}
 </script>
