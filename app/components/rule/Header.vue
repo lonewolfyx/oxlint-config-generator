@@ -10,23 +10,41 @@
             {{ scope }}
         </div>
         <div class="flex items-center gap-1 text-xs font-medium text-muted-foreground">
-            <span class="text-pink-600 font-bold">15</span>
+            <span class="text-pink-600 font-bold">{{ usedRuleCount }}</span>
             <span>/</span>
-            <span>40</span>
+            <span>{{ totalRuleCount }}</span>
             <span>Rules</span>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import { cn } from '~/lib/utils'
+import { useRulesConfig } from '~/components/rule'
 import type { SourcePluginName } from '#shared/types'
 
 defineOptions({
     name: 'RuleHeader',
 })
 
-defineProps<{
+const props = defineProps<{
     scope: SourcePluginName
 }>()
+
+const { rules, oxlintrc } = useRulesConfig()!
+
+const totalRuleCount = computed(() => {
+    return rules[props.scope]?.length ?? 0
+})
+
+const usedRuleCount = computed(() => {
+    if (!oxlintrc.value.rules) return 0
+
+    // count the number of rules in oxlintrc.rules that start with "scope/"
+    const prefix = `${props.scope.replace('_', '-')}/`
+    return Object.keys(oxlintrc.value.rules).filter(key =>
+        key.startsWith(prefix),
+    ).length
+})
 </script>
