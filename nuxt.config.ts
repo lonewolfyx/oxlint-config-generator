@@ -3,76 +3,42 @@ import tailwindcss from '@tailwindcss/vite'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: [
+        // '@nuxt/content',
         '@nuxt/eslint',
         '@nuxt/icon',
-        'arco-design-nuxt-module',
-        '@pinia/nuxt',
         '@vueuse/nuxt',
-        'pinia-plugin-persistedstate/nuxt',
+        'shadcn-nuxt',
     ],
+
     ssr: false,
 
-    devtools: { enabled: true },
+    devtools: {
+        enabled: false,
+    },
+
     app: {
-        baseURL: './',
         head: {
-            title: 'OXLint Config Generator',
-            charset: 'utf-8',
+            viewport: 'width=device-width,initial-scale=1',
+            link: [
+                { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+                { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
+                { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+            ],
             meta: [
-                {
-                    name: 'author',
-                    content: `olddriver <https://github.com/lonewolfyx>`,
-                },
-                {
-                    name: 'description',
-                    content: 'Easily config your oxlint config for your next app.',
-                },
-                {
-                    name: 'application-name',
-                    content: 'OXLint Config Generator',
-                },
-                {
-                    name: 'keywords',
-                    content: [
-                        'oxc',
-                        'oxlint',
-                        'create oxlint config in nuxt.js',
-                        'create oxlint config in vue',
-                        'vue',
-                        'nuxt.js',
-                        'javascript',
-                        'linter',
-                        'linter in javascript app',
-                    ].join(','),
-                },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
             ],
         },
     },
 
-    css: ['~/assets/css/tailwind.css'],
-
-    runtimeConfig: {
-        app: {
-            name: 'OXLint Config Generator',
-            description: 'Easily config your oxlint config for your next app.',
-            github: 'https://github.com/lonewolfyx/oxlint-config-generator',
-        },
-    },
-
-    devServer: {
-        port: 7077,
-    },
-    compatibilityDate: '2025-07-15',
-
-    nitro: {
-        devProxy: {
-            host: 'localhost',
-        },
-    },
+    css: [
+        '~/assets/css/tailwind.css',
+    ],
+    compatibilityDate: '2026-02-17',
 
     vite: {
         plugins: [
-            tailwindcss(),
+            tailwindcss() as never,
         ],
     },
 
@@ -83,5 +49,10 @@ export default defineNuxtConfig({
                 quotes: 'single', // or 'double'
             },
         },
+    },
+
+    shadcn: {
+        prefix: '',
+        componentDir: './app/components/ui',
     },
 })

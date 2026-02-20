@@ -1,25 +1,75 @@
-<div align="center">
-  <img src="/public/logo.svg" alt="Oxlint Config Generator Logo" width="120" height="120">
+# oxlint
 
-# Oxlint Config Generator
+Oxlint Config Generator is a powerful tool designed to generate and manage oxlint configuration files. It provides an intuitive interface that helps developers quickly create, customize, and optimize oxlint configurations without manually writing complex configuration files.
 
-</div>
+## Setup
 
-Oxlint Config Generator is a powerful tool designed to generate and manage oxlint configuration files. It provides an
-intuitive interface that helps developers quickly create, customize, and optimize oxlint configurations without manually
-writing complex configuration files.
+Make sure to install dependencies:
 
-### Key Features
+```bash
+# npm
+npm install
 
-- 🚀 **Quick Generation** - Generate oxlint configurations through a visual interface
-- ⚙️ **Flexible Configuration** - Support for customizing all oxlint rules
+# pnpm
+pnpm install
 
-[![OXLint Config Generator](https://github.com/lonewolfyx/oxlint-config-generator/blob/master/public/opengraph-image.png?raw=true)](https://oxlint-config-generator.vercel.app/)
+# yarn
+yarn install
 
-### Issue Reporting
+# bun
+bun install
+```
 
-If you find bugs or have feature suggestions, please submit them through
-the [Issues](https://github.com/lonewolfyx/oxlint-config-generator/issues) page. Please provide detailed descriptions
-and reproduction steps.
+## Development Server
 
-Thank you for your interest and contributions to the project! 🎉
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
