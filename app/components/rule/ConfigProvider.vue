@@ -30,6 +30,9 @@ const isSelected = (scope: SourcePluginName) => {
     return selectedScopes.value.includes(scope)
 }
 
+// search keyword
+const searchKeyword = ref<string>('')
+
 // oxlint config
 const oxlintrc = shallowRef<OxlintConfig>({
     plugins: [],
@@ -49,6 +52,7 @@ RulesConfigProvider({
     selectedScopes,
     toggleScope,
     isSelected,
+    searchKeyword,
     oxlintrc,
     setOxLintRc,
 })

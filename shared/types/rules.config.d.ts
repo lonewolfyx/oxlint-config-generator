@@ -10,8 +10,7 @@ export interface IRulesConfigProvider {
     defaultRule: number
     fixableRule: number
 
-    searchKeyword?: Ref<string>
-    setSearchKeyword?: (keyword: string) => void
+    searchKeyword: Ref<string>
 
     lintConfigType?: Ref<LintConfigType>
     setLintConfigType?: (type: LintConfigType) => void

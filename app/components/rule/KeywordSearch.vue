@@ -1,7 +1,10 @@
 <template>
     <div class="w-1/3">
         <InputGroup class="rounded-full">
-            <InputGroupInput placeholder="Search Rules..." />
+            <InputGroupInput
+                v-model="searchKeyword"
+                placeholder="Search Rules..."
+            />
             <InputGroupAddon>
                 <Icon
                     mode="svg"
@@ -13,7 +16,11 @@
 </template>
 
 <script lang="ts" setup>
+import { useRulesConfig } from '~/components/rule'
+
 defineOptions({
     name: 'RuleKeywordSearch',
 })
+
+const { searchKeyword } = useRulesConfig()!
 </script>

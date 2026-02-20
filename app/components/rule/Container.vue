@@ -42,13 +42,13 @@ import { cn } from '~/lib/utils'
 import { useRulesConfig } from '~/components/rule'
 import RuleHeader from '~/components/rule/Header.vue'
 import RuleKeywordSearch from '~/components/rule/KeywordSearch.vue'
-import type { SourcePluginName } from '#shared/types'
+import type { IRule, SourcePluginName } from '#shared/types'
 
 defineOptions({
     name: 'RuleContainer',
 })
 
-const { rules, selectedScopes } = useRulesConfig()
+const { rules, selectedScopes, searchKeyword } = useRulesConfig()
 
 const SORTED_SCOPES = [
     'eslint',
@@ -70,10 +70,20 @@ const SORTED_SCOPES = [
 
 const filteredRules = computed(() => {
     const result = new Map<string, IRule[]>()
+    const keyword = searchKeyword.value.toLowerCase().trim() || ''
 
     SORTED_SCOPES.forEach((scope) => {
         if (selectedScopes.value.includes(scope) && rules[scope]) {
-            result.set(scope, rules[scope])
+            let filteredItems = rules[scope]
+
+            if (keyword) {
+                filteredItems = rules[scope].filter((rule: IRule) => rule.value.toLowerCase().includes(keyword))
+            }
+
+            // Add only scopes with rules
+            if (filteredItems.length > 0) {
+                result.set(scope, filteredItems)
+            }
         }
     })
 
