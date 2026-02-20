@@ -6,8 +6,6 @@
 import { ref, shallowRef } from 'vue'
 import { RulesConfigProvider } from '.'
 import rules from '~/data/oxlint-rules.json'
-import type { IRulesMap } from '#shared/types'
-import type { OxlintConfig } from 'oxlint'
 
 defineOptions({
     name: 'RuleConfigProvider',
@@ -34,13 +32,14 @@ const isSelected = (scope: SourcePluginName) => {
 const searchKeyword = ref<string>('')
 
 // oxlint config
-const oxlintrc = shallowRef<OxlintConfig>({
+const oxlintrc = shallowRef<OxlintrcConfig>({
+    $schema: './node_modules/oxlint/configuration_schema.json',
     plugins: [],
     rules: {},
 })
 
 // update oxlint config
-const setOxLintRc = (config: OxlintConfig) => {
+const setOxLintRc = (config: OxlintrcConfig) => {
     oxlintrc.value = config
 }
 

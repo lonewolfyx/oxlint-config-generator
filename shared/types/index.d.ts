@@ -1,3 +1,5 @@
+import type { OxlintConfig } from 'oxlint'
+
 export type SourcePluginName = 'eslint'
     | 'import'
     | 'jest'
@@ -66,3 +68,7 @@ export interface IRule {
 }
 
 export type IRulesMap = Partial<Record<SourcePluginName, IRule[]>>
+
+export interface OxlintrcConfig extends OxlintConfig {
+    $schema: string
+}
