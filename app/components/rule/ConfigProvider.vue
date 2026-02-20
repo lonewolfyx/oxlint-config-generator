@@ -3,10 +3,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 import { RulesConfigProvider } from '.'
 import rules from '~/data/oxlint-rules.json'
 import type { IRulesMap } from '#shared/types'
+import type { OxlintConfig } from 'oxlint'
 
 defineOptions({
     name: 'RuleConfigProvider',
@@ -29,6 +30,17 @@ const isSelected = (scope: SourcePluginName) => {
     return selectedScopes.value.includes(scope)
 }
 
+// oxlint config
+const oxlintrc = shallowRef<OxlintConfig>({
+    plugins: [],
+    rules: {},
+})
+
+// update oxlint config
+const setOxLintRc = (config: OxlintConfig) => {
+    oxlintrc.value = config
+}
+
 RulesConfigProvider({
     rules: rules.rules as IRulesMap,
     totalRule: rules.total,
@@ -37,5 +49,7 @@ RulesConfigProvider({
     selectedScopes,
     toggleScope,
     isSelected,
+    oxlintrc,
+    setOxLintRc,
 })
 </script>

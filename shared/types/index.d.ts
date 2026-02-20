@@ -14,6 +14,22 @@ export type SourcePluginName = 'eslint'
     | 'vitest'
     | 'vue'
 
+export type PluginName = 'eslint'
+    | 'import'
+    | 'jest'
+    | 'jsdoc'
+    | 'jsx-a11y'
+    | 'nextjs'
+    | 'node'
+    | 'oxc'
+    | 'promise'
+    | 'react'
+    | 'react-perf'
+    | 'typescript'
+    | 'unicorn'
+    | 'vitest'
+    | 'vue'
+
 export interface IScopeCategory {
     label: string
     plugins: { label: string, value: SourcePluginName }[]
@@ -34,7 +50,7 @@ export type RuleFixType = 'fixable_fix'
     | 'none'
 
 export interface IRule {
-    scope: SourcePluginName
+    scope: PluginName
     value: string
     category: RuleCategory
     type_aware: boolean

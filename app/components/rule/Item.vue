@@ -56,7 +56,7 @@
                 />
             </div>
             <div class="flex items-center gap-1">
-                <RuleSeverity />
+                <RuleSeverity :rule="rule" />
                 <Button
                     v-if="Object.keys(rule.options.schema).length"
                     class="rounded"

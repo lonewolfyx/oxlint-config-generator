@@ -17,8 +17,8 @@ export interface IRulesConfigProvider {
     setLintConfigType?: (type: LintConfigType) => void
 
     // https://oxc.rs/docs/guide/usage/linter/config.html
-    oxlintrc?: ShallowRef<OxlintConfig>
-    setOxLintRc?: (code: OxlintConfig) => void
+    oxlintrc: ShallowRef<OxlintConfig>
+    setOxLintRc: (code: OxlintConfig) => void
 
     // Scope selection management
     selectedScopes: Ref<SourcePluginName[]>
