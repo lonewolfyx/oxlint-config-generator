@@ -37,9 +37,10 @@
                 </Button>
             </div>
             <div class="rounded-b-xl p-2 overflow-y-auto min-h-0 h-full bg-muted">
-                <span>code review</span>
-                <p>code review</p>
-                <p>code review</p>
+                <VueJsonPretty
+                    :data="oxlintrc as any"
+                    theme="light"
+                />
             </div>
         </div>
     </div>
@@ -47,8 +48,13 @@
 
 <script lang="ts" setup>
 import { cn } from '~/lib/utils'
+import { useRulesConfig } from '~/components/rule'
+import VueJsonPretty from 'vue-json-pretty'
+import 'vue-json-pretty/lib/styles.css'
 
 defineOptions({
     name: 'CodeContainer',
 })
+
+const { oxlintrc } = useRulesConfig()!
 </script>
