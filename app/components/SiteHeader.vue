@@ -22,7 +22,10 @@
                 as-child
                 variant="ghost"
             >
-                <NuxtLink>
+                <NuxtLink
+                    :to="app.github.link"
+                    target="_blank"
+                >
                     <Icon
                         mode="svg"
                         name="lucide:github"
@@ -41,4 +44,6 @@ import { cn } from '~/lib/utils'
 defineOptions({
     name: 'SiteHeader',
 })
+
+const app = useAppConfig()
 </script>
