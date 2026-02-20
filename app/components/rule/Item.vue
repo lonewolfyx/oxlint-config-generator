@@ -5,12 +5,11 @@
                 <div class="flex items-center flex-1 gap-1.5">
                     <span
                         :class="cn(
-                            'capitalize',
+                            'capitalize text-base font-medium',
                             ruleScopeVariants({
-                                label: rule.scope,
+                                text: rule.scope,
                             }),
                         )"
-                        class="px-1.5 py-0.5 rounded text-xs font-medium"
                     >
                         {{ rule.scope }}
                     </span>
