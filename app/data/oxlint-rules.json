@@ -1,7 +1,7 @@
 {
-    "total": 677,
-    "useDefaultTotal": 107,
-    "useFixableTotal": 242,
+    "total": 693,
+    "useDefaultTotal": 108,
+    "useFixableTotal": 245,
     "rules": {
         "eslint": [
             {
@@ -60,6 +60,9 @@
                             "allowImplicit": {
                                 "type": "boolean"
                             },
+                            "allowVoid": {
+                                "type": "boolean"
+                            },
                             "checkForEach": {
                                 "type": "boolean"
                             }
@@ -69,6 +72,7 @@
                     "defaultOptions": [
                         {
                             "allowImplicit": false,
+                            "allowVoid": false,
                             "checkForEach": false
                         }
                     ]
@@ -3187,6 +3191,57 @@
             },
             {
                 "scope": "eslint",
+                "value": "no-use-before-define",
+                "category": "restriction",
+                "type_aware": false,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/eslint/no-use-before-define.html",
+                "rule": "no-use-before-define",
+                "description": "Disallows using variables before they are defined.",
+                "options": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "allowNamedExports": {
+                                "type": "boolean"
+                            },
+                            "classes": {
+                                "type": "boolean"
+                            },
+                            "enums": {
+                                "type": "boolean"
+                            },
+                            "functions": {
+                                "type": "boolean"
+                            },
+                            "ignoreTypeReferences": {
+                                "type": "boolean"
+                            },
+                            "typedefs": {
+                                "type": "boolean"
+                            },
+                            "variables": {
+                                "type": "boolean"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "defaultOptions": [
+                        {
+                            "allowNamedExports": false,
+                            "classes": true,
+                            "enums": true,
+                            "functions": true,
+                            "ignoreTypeReferences": true,
+                            "typedefs": true,
+                            "variables": true
+                        }
+                    ]
+                }
+            },
+            {
+                "scope": "eslint",
                 "value": "no-useless-backreference",
                 "category": "correctness",
                 "type_aware": false,
@@ -3718,11 +3773,7 @@
                 "rule": "radix",
                 "description": "Enforce the consistent use of the radix argument when using parseInt().",
                 "options": {
-                    "schema": {
-                        "type": "object",
-                        "properties": {},
-                        "additionalProperties": false
-                    },
+                    "schema": {},
                     "defaultOptions": []
                 }
             },
@@ -5536,6 +5587,21 @@
             },
             {
                 "scope": "jest",
+                "value": "prefer-mock-return-shorthand",
+                "category": "style",
+                "type_aware": false,
+                "fix": "fixable_fix",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/jest/prefer-mock-return-shorthand.html",
+                "rule": "prefer-mock-return-shorthand",
+                "description": "When working with mocks of functions that return simple values, Jest provides some API sugar functions to reduce the amount of boilerplate you have to write.",
+                "options": {
+                    "schema": {},
+                    "defaultOptions": []
+                }
+            },
+            {
+                "scope": "jest",
                 "value": "prefer-spy-on",
                 "category": "style",
                 "type_aware": false,
@@ -7300,6 +7366,21 @@
                 "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/node/no-new-require.html",
                 "rule": "no-new-require",
                 "description": "Warn about calling new on require.",
+                "options": {
+                    "schema": {},
+                    "defaultOptions": []
+                }
+            },
+            {
+                "scope": "node",
+                "value": "no-path-concat",
+                "category": "restriction",
+                "type_aware": false,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/node/no-path-concat.html",
+                "rule": "no-path-concat",
+                "description": "Disallows string concatenation with __dirname and __filename.",
                 "options": {
                     "schema": {},
                     "defaultOptions": []
@@ -9698,6 +9779,33 @@
             },
             {
                 "scope": "typescript",
+                "value": "consistent-return",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/consistent-return.html",
+                "rule": "consistent-return",
+                "description": "Enforce consistent return behavior in functions.",
+                "options": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "treatUndefinedAsUnspecified": {
+                                "type": "boolean"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "defaultOptions": [
+                        {
+                            "treatUndefinedAsUnspecified": false
+                        }
+                    ]
+                }
+            },
+            {
+                "scope": "typescript",
                 "value": "consistent-type-assertions",
                 "category": "style",
                 "type_aware": false,
@@ -9734,6 +9842,33 @@
                         "additionalProperties": false
                     },
                     "defaultOptions": []
+                }
+            },
+            {
+                "scope": "typescript",
+                "value": "consistent-type-exports",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/consistent-type-exports.html",
+                "rule": "consistent-type-exports",
+                "description": "Enforce using export type for exports that are only used as types.",
+                "options": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "fixMixedExportsWithInlineTypeSpecifier": {
+                                "type": "boolean"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "defaultOptions": [
+                        {
+                            "fixMixedExportsWithInlineTypeSpecifier": false
+                        }
+                    ]
                 }
             },
             {
@@ -9775,6 +9910,49 @@
                             "disallowTypeAnnotations": true,
                             "fixStyle": "separate-type-imports",
                             "prefer": "type-imports"
+                        }
+                    ]
+                }
+            },
+            {
+                "scope": "typescript",
+                "value": "dot-notation",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/dot-notation.html",
+                "rule": "dot-notation",
+                "description": "Enforce dot notation whenever property access can be written safely as obj.prop.",
+                "options": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "allowIndexSignaturePropertyAccess": {
+                                "type": "boolean"
+                            },
+                            "allowKeywords": {
+                                "type": "boolean"
+                            },
+                            "allowPattern": {
+                                "type": "string"
+                            },
+                            "allowPrivateClassPropertyAccess": {
+                                "type": "boolean"
+                            },
+                            "allowProtectedClassPropertyAccess": {
+                                "type": "boolean"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "defaultOptions": [
+                        {
+                            "allowIndexSignaturePropertyAccess": false,
+                            "allowKeywords": true,
+                            "allowPattern": "",
+                            "allowPrivateClassPropertyAccess": false,
+                            "allowProtectedClassPropertyAccess": false
                         }
                     ]
                 }
@@ -10802,6 +10980,21 @@
             },
             {
                 "scope": "typescript",
+                "value": "no-unnecessary-qualifier",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/no-unnecessary-qualifier.html",
+                "rule": "no-unnecessary-qualifier",
+                "description": "Disallow namespace qualifiers when the referenced name is already in scope.",
+                "options": {
+                    "schema": {},
+                    "defaultOptions": []
+                }
+            },
+            {
+                "scope": "typescript",
                 "value": "no-unnecessary-template-expression",
                 "category": "suspicious",
                 "type_aware": true,
@@ -10871,6 +11064,21 @@
                 "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-constraint.html",
                 "rule": "no-unnecessary-type-constraint",
                 "description": "Disallow unnecessary constraints on generic types.",
+                "options": {
+                    "schema": {},
+                    "defaultOptions": []
+                }
+            },
+            {
+                "scope": "typescript",
+                "value": "no-unnecessary-type-parameters",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/no-unnecessary-type-parameters.html",
+                "rule": "no-unnecessary-type-parameters",
+                "description": "Disallow type parameters that are declared but not meaningfully used.",
                 "options": {
                     "schema": {},
                     "defaultOptions": []
@@ -11040,53 +11248,17 @@
             },
             {
                 "scope": "typescript",
-                "value": "no-use-before-define",
-                "category": "restriction",
-                "type_aware": false,
+                "value": "no-useless-default-assignment",
+                "category": "nursery",
+                "type_aware": true,
                 "fix": "none",
                 "default": false,
-                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/no-use-before-define.html",
-                "rule": "no-use-before-define",
-                "description": "Disallows using variables before they are defined.",
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/no-useless-default-assignment.html",
+                "rule": "no-useless-default-assignment",
+                "description": "Disallow default assignments that can never be used.",
                 "options": {
-                    "schema": {
-                        "type": "object",
-                        "properties": {
-                            "allowNamedExports": {
-                                "type": "boolean"
-                            },
-                            "classes": {
-                                "type": "boolean"
-                            },
-                            "enums": {
-                                "type": "boolean"
-                            },
-                            "functions": {
-                                "type": "boolean"
-                            },
-                            "ignoreTypeReferences": {
-                                "type": "boolean"
-                            },
-                            "typedefs": {
-                                "type": "boolean"
-                            },
-                            "variables": {
-                                "type": "boolean"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    "defaultOptions": [
-                        {
-                            "allowNamedExports": false,
-                            "classes": true,
-                            "enums": true,
-                            "functions": true,
-                            "ignoreTypeReferences": true,
-                            "typedefs": true,
-                            "variables": true
-                        }
-                    ]
+                    "schema": {},
+                    "defaultOptions": []
                 }
             },
             {
@@ -11263,6 +11435,21 @@
                 "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/prefer-enum-initializers.html",
                 "rule": "prefer-enum-initializers",
                 "description": "Require each enum member value to be explicitly initialized.",
+                "options": {
+                    "schema": {},
+                    "defaultOptions": []
+                }
+            },
+            {
+                "scope": "typescript",
+                "value": "prefer-find",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/prefer-find.html",
+                "rule": "prefer-find",
+                "description": "Prefer .find(...) over .filter(...)[0] for retrieving a single element.",
                 "options": {
                     "schema": {},
                     "defaultOptions": []
@@ -11493,6 +11680,75 @@
             },
             {
                 "scope": "typescript",
+                "value": "prefer-readonly",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/prefer-readonly.html",
+                "rule": "prefer-readonly",
+                "description": "Require class members that are never reassigned to be marked readonly.",
+                "options": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "onlyInlineLambdas": {
+                                "type": "boolean"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "defaultOptions": [
+                        {
+                            "onlyInlineLambdas": false
+                        }
+                    ]
+                }
+            },
+            {
+                "scope": "typescript",
+                "value": "prefer-readonly-parameter-types",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/prefer-readonly-parameter-types.html",
+                "rule": "prefer-readonly-parameter-types",
+                "description": "Require function and method parameters to use readonly-compatible types.",
+                "options": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "allow": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "checkParameterProperties": {
+                                "type": "boolean"
+                            },
+                            "ignoreInferredTypes": {
+                                "type": "boolean"
+                            },
+                            "treatMethodsAsReadonly": {
+                                "type": "boolean"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "defaultOptions": [
+                        {
+                            "allow": [],
+                            "checkParameterProperties": true,
+                            "ignoreInferredTypes": false,
+                            "treatMethodsAsReadonly": false
+                        }
+                    ]
+                }
+            },
+            {
+                "scope": "typescript",
                 "value": "prefer-reduce-type-parameter",
                 "category": "style",
                 "type_aware": true,
@@ -11501,6 +11757,21 @@
                 "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/prefer-reduce-type-parameter.html",
                 "rule": "prefer-reduce-type-parameter",
                 "description": "This rule prefers using a type parameter for the accumulator in Array.reduce instead of casting.",
+                "options": {
+                    "schema": {},
+                    "defaultOptions": []
+                }
+            },
+            {
+                "scope": "typescript",
+                "value": "prefer-regexp-exec",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/prefer-regexp-exec.html",
+                "rule": "prefer-regexp-exec",
+                "description": "Prefer RegExp#exec() over String#match() when extracting a regex match.",
                 "options": {
                     "schema": {},
                     "defaultOptions": []
@@ -11519,6 +11790,37 @@
                 "options": {
                     "schema": {},
                     "defaultOptions": []
+                }
+            },
+            {
+                "scope": "typescript",
+                "value": "prefer-string-starts-ends-with",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": true,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/prefer-string-starts-ends-with.html",
+                "rule": "prefer-string-starts-ends-with",
+                "description": "Prefer startsWith and endsWith over manual string boundary checks.",
+                "options": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "allowSingleElementEquality": {
+                                "type": "string",
+                                "enum": [
+                                    "always",
+                                    "never"
+                                ]
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "defaultOptions": [
+                        {
+                            "allowSingleElementEquality": null
+                        }
+                    ]
                 }
             },
             {
@@ -11824,6 +12126,33 @@
                             "allowNullableString": false,
                             "allowNumber": true,
                             "allowString": true
+                        }
+                    ]
+                }
+            },
+            {
+                "scope": "typescript",
+                "value": "strict-void-return",
+                "category": "nursery",
+                "type_aware": true,
+                "fix": "none",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/typescript/strict-void-return.html",
+                "rule": "strict-void-return",
+                "description": "Disallow returning non-void values where a void return is expected.",
+                "options": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "allowReturnAny": {
+                                "type": "boolean"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "defaultOptions": [
+                        {
+                            "allowReturnAny": false
                         }
                     ]
                 }
@@ -12883,7 +13212,7 @@
                 "default": false,
                 "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/unicorn/no-unnecessary-array-flat-depth.html",
                 "rule": "no-unnecessary-array-flat-depth",
-                "description": "Disallows passing 1 to Array.prototype.flat",
+                "description": "Disallows passing 1 to Array.prototype.flat.",
                 "options": {
                     "schema": {},
                     "defaultOptions": []
@@ -14323,6 +14652,21 @@
             },
             {
                 "scope": "vitest",
+                "value": "no-importing-vitest-globals",
+                "category": "style",
+                "type_aware": false,
+                "fix": "fixable_fix",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/vitest/no-importing-vitest-globals.html",
+                "rule": "no-importing-vitest-globals",
+                "description": "The rule disallows import any vitest global function.",
+                "options": {
+                    "schema": {},
+                    "defaultOptions": []
+                }
+            },
+            {
+                "scope": "vitest",
                 "value": "prefer-called-once",
                 "category": "style",
                 "type_aware": false,
@@ -14378,6 +14722,29 @@
                 "description": "Enforce using expectTypeOf instead of expect(typeof ...)",
                 "options": {
                     "schema": {},
+                    "defaultOptions": []
+                }
+            },
+            {
+                "scope": "vitest",
+                "value": "prefer-import-in-mock",
+                "category": "style",
+                "type_aware": false,
+                "fix": "fixable_fix",
+                "default": false,
+                "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/vitest/prefer-import-in-mock.html",
+                "rule": "prefer-import-in-mock",
+                "description": "This rule enforces using a dynamic import() in vi.mock(), which improves type information and IntelliSense for the mocked module.",
+                "options": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "fixable": {
+                                "type": "boolean"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
                     "defaultOptions": []
                 }
             },
