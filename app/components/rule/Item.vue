@@ -6,8 +6,8 @@
                     <span
                         :class="cn(
                             'capitalize text-base font-medium',
-                            ruleScopeVariants({
-                                text: rule.scope,
+                            ruleScopeTextVariants({
+                                label: rule.scope,
                             }),
                         )"
                     >
@@ -76,7 +76,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { ruleScopeVariants, useRulesConfig } from '~/components/rule'
+import { ruleScopeTextVariants, useRulesConfig } from '~/components/rule'
 import { cn } from '~/lib/utils'
 import type { IRule } from '#shared/types'
 import { FIXABLE_TYPES } from '~/constant'

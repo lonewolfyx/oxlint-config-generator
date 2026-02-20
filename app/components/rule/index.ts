@@ -29,7 +29,15 @@ export const ruleScopeVariants = cva(
                 'vitest': 'hover:bg-green-100 bg-green-100 text-green-700',
                 'vue': 'hover:bg-green-100 bg-green-100 text-green-700',
             },
-            text: {
+        },
+    },
+)
+
+export const ruleScopeTextVariants = cva(
+    '',
+    {
+        variants: {
+            label: {
                 '': '',
                 'eslint': 'text-purple-700',
                 'import': 'text-orange-700',
