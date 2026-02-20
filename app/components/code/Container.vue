@@ -1,7 +1,7 @@
 <template>
     <div
         :class="cn(
-            'bg-background w-1/3',
+            'bg-background w-1/3 shrink-0',
             'border border-input rounded-xl',
             'flex min-h-0',
         )"
