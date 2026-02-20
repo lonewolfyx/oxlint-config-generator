@@ -3,5 +3,6 @@ export default defineAppConfig({
     description: 'A wizard-based generator that helps you create and customize oxlint configurations with ease',
     github: {
         repo: 'lonewolfyx/oxlint-config-generator',
+        link: 'https://github.com/lonewolfyx/oxlint-config-generator',
     },
 })
