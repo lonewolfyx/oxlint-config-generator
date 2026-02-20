@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useRulesConfig } from '.'
-import type { IRule } from '#shared/types'
+import type { IRule, PluginName } from '#shared/types'
 
 defineOptions({
     name: 'RuleSeverity',
@@ -70,8 +70,9 @@ const severity = computed({
         }
 
         // if the plugin is not in the plugins list, add it
-        if (newConfig.plugins && !newConfig.plugins.includes(props.rule.scope)) {
-            newConfig.plugins = [...newConfig.plugins, props.rule.scope]
+        const scope = props.rule.scope.replace('_', '-') as PluginName
+        if (newConfig.plugins && !newConfig.plugins.includes(scope)) {
+            newConfig.plugins = [...newConfig.plugins, scope]
         }
 
         setOxLintRc(newConfig)
