@@ -14,6 +14,12 @@
                         {{ rule.scope }}
                     </span>
                     <span class="font-medium opacity-65">/</span>
+                    <NuxtLink
+                        :to="rule.docs_url"
+                        :title="rule.value"
+                        target="_blank"
+                        class="text-xs font-medium text-muted-foreground/50"
+                    >(Docs)</NuxtLink>
                 </div>
                 <Button
                     class="text-muted-foreground/50 hover:text-red-500"
