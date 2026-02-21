@@ -6,7 +6,7 @@
             class="flex items-start gap-2"
         >
             <span class="capitalize text-sm opacity-50">{{ scope.label }}:</span>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center flex-wrap gap-2">
                 <Button
                     v-for="plugin in scope.plugins"
                     :key="plugin.value"
